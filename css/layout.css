@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,4 +6,46 @@
     border: 0;
 }
 
+body {
 
+    font-family: 'Montserrat', sans-serif;   /*font-family: 'Scope One', serif;*/
+}
+
+/**********************************************top navbar begins*****************************************************/
+.top-nav-container{
+    position: fixed; /* it should always remain at the top */
+    display: flex; /*make it a flex container for easy layout of items inside it */
+    width: 100vw;  /* make the width occupy entire screen */
+    height: 60px; /* the top navigation bar is set to height of 60px for small screens */
+    align-items: center; /* center the items vertically */
+
+}
+/* use below class in combination with '.top-nav-bar' for indigo color navbar */
+.top-nav-container--indigo{
+    background: #3f51b5;
+}
+
+.top-nav-container__toggle-menu{
+    font-size: 30px;
+    margin-right: 20px;/* gap from brand logo */
+    margin-left: 10px; /*gap from left side of container*/
+    cursor: pointer;
+}
+/* use below class in combination with '.top-nav-container__toggle-menu' for light indigo color menu icon */
+.top-nav-container__toggle-menu--light_indigo{
+    color: #c5cae9;
+}
+/* push the menu and brand on the left(everything that comes after logo,if any,be pushed towards right side of navbar)*/
+.top-nav-container__brand-link{
+    margin-right: auto;
+}
+
+/**********************************************top navbar ends*****************************************************/
+
+/**********************************************general utility begins**********************************************/
+
+/* gives a padding of 1rem on all sides*/
+.wrapper{
+    padding: 1rem 1rem;
+}
+/**********************************************general utility ends**********************************************/
