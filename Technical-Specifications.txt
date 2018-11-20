@@ -1,0 +1,7 @@
+NOTE: The default font and colors of elements are not modified. You need to modify them
+by applying separate css styles, if needed.
+
+                                                Image Size Requirements
+
+Brand Banner: 250 X 50
+SideNav Header Background: 290 x 200

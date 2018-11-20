@@ -1,3 +1,9 @@
+/*
+NOTE: The default font(sans-serif) and colors of elements are not modified. You need to modify them
+by applying separate css styles, if needed.
+ */
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,45 +13,167 @@
 }
 
 body {
-
-    font-family: 'Montserrat', sans-serif;   /*font-family: 'Scope One', serif;*/
+    font-family: sans-serif;
+    /*font-family: 'Montserrat', sans-serif;*/   /*font-family: 'Scope One', serif;*/
 }
 
-/**********************************************top navbar begins*****************************************************/
+/**********************************************top NavBar styles begins*********************************************/
 .top-nav-container{
     position: fixed; /* it should always remain at the top */
     display: flex; /*make it a flex container for easy layout of items inside it */
     width: 100vw;  /* make the width occupy entire screen */
     height: 60px; /* the top navigation bar is set to height of 60px for small screens */
     align-items: center; /* center the items vertically */
+    z-index: 100; /* above everything else except SideNav bar */
 
 }
-/* use below class in combination with '.top-nav-bar' for indigo color navbar */
-.top-nav-container--indigo{
-    background: #3f51b5;
-}
-
-.top-nav-container__toggle-menu{
+.top-nav-toggle-menu-icon{
     font-size: 30px;
-    margin-right: 20px;/* gap from brand logo */
+    margin-right: 30px;/* gap from brand logo */
     margin-left: 10px; /*gap from left side of container*/
     cursor: pointer;
 }
-/* use below class in combination with '.top-nav-container__toggle-menu' for light indigo color menu icon */
-.top-nav-container__toggle-menu--light_indigo{
-    color: #c5cae9;
-}
-/* push the menu and brand on the left(everything that comes after logo,if any,be pushed towards right side of navbar)*/
-.top-nav-container__brand-link{
-    margin-right: auto;
-}
+.top-nav-brand-link{
+    /*margin-right: auto; enable this if you want more items on top navbar and want them to be on the right side*/
+} /*not used yet*/
+/**********************************************top NavBar styles ends***********************************************/
 
-/**********************************************top navbar ends*****************************************************/
 
-/**********************************************general utility begins**********************************************/
+/**********************************************side NavBar styles begins********************************************/
+.side-nav-container{
+    width: 19rem; /* width of container ~ 290 px*/
+    height: 100vh; /* occupy entire view-height*/
+    z-index: 1000; /* above everything else */
+    position: relative;/* so that icon can be positioned properly w.r.t header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    /*visibility: hidden;*/
+}
+.side-nav-header{} /*not used yet*/
+.side-nav-header-image{ /* the size of header background image must be 300x200px */
+    width: 100%;/*set the width to occupy entire width of SideNav header*/
+    height: 200px;/* height of image is fixed at 200px*/
+    background-size: cover; /*stretch the image to fit the width of header, if needed*/
+}
+.side-nav-menu{ /* div wrapper for menu links */
+    width: 100%; /* div must occupy entire width of SideNav bar */
+    text-align: center; /* center the links text */
+    overflow: auto; /* display scroll bar if menu list items are more */
+}
+.side-nav-menu-list{
+    list-style: none;
+
+}
+.side-nav-menu-list-item{
+    margin-bottom: 1rem; /* gap between two link items */
+}
+.side-nav-menu-list-item-link{
+    text-decoration: none;
+    font-size: 1.5rem; /* font size of links text */
+}
+.side-nav-close-menu-icon{
+    position: absolute; /* so that icon can be positioned properly w.r.t header */
+    font-size: 3rem; /* set the icon size */
+    top: -3px; /*place the icon on the extreme top of SideNav header */
+    right: 0px; /*place the icon on the extreme right of SideNav header */
+}
+/**********************************************side NavBar styles ends********************************************/
+
+/**********************************************general styles begins**********************************************/
 
 /* gives a padding of 1rem on all sides*/
 .wrapper{
     padding: 1rem 1rem;
 }
-/**********************************************general utility ends**********************************************/
+
+/*text color of indigo shades */
+.indigo-text-lighten-5{
+    color: #e8eaf6;
+}
+.indigo-text-lighten-4{
+    color: #c5cae9;
+}
+.indigo-text-lighten-3{
+    color: #9fa8da;
+}
+.indigo-text-lighten-2{
+    color: #7986cb;
+}
+.indigo-text-lighten-1{
+    color: #5c6bc0;
+}
+.indigo-text{
+    color: #3f51b5;
+}
+.indigo-text-darken-1{
+    color: #3949ab;
+}
+.indigo-text-darken-2{
+    color: #303f9f;
+}
+.indigo-text-darken-3{
+    color: #283593;
+}
+.indigo-text-darken-4{
+    color: #1a237e;
+}
+.indigo-text-accent-1{
+    color: #8c9eff;
+}
+.indigo-text-accent-2{
+    color: #536dfe;
+}
+.indigo-text-accent-3{
+    color: #3d5afe;
+}
+.indigo-text-accent-4{
+    color: #304ffe;
+}
+
+/*background color of indigo shades*/
+.indigo-bg-lighten-5{
+    background-color: #e8eaf6;
+}
+.indigo-bg-lighten-4{
+    background-color: #c5cae9;
+}
+.indigo-bg-lighten-3{
+    background-color: #9fa8da;
+}
+.indigo-bg-lighten-2{
+    background-color: #7986cb;
+}
+.indigo-bg-lighten-1{
+    background-color: #5c6bc0;
+}
+.indigo-bg{
+    background-color: #3f51b5;
+}
+.indigo-bg-darken-1{
+    background-color: #3949ab;
+}
+.indigo-bg-darken-2{
+    background-color: #303f9f;
+}
+.indigo-bg-darken-3{
+    background-color: #283593;
+}
+.indigo-bg-darken-4{
+    background-color: #1a237e;
+}
+.indigo-bg-accent-1{
+    background-color: #8c9eff;
+}
+.indigo-bg-accent-2{
+    background-color: #536dfe;
+}
+.indigo-bg-accent-3{
+    background-color: #3d5afe;
+}
+.indigo-bg-accent-4{
+    background-color: #304ffe;
+}
+/**********************************************general styles ends**********************************************/
