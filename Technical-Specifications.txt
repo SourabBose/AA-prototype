@@ -1,3 +1,0 @@
-Top Navigation Bar
-------------------
-width = fullscreen, height = 60px(small screens)
