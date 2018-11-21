@@ -17,12 +17,20 @@ body {
     /*font-family: 'Montserrat', sans-serif;*/   /*font-family: 'Scope One', serif;*/
 }
 
+main{ /* this rule will apply common to all screen sizes,namely, adjustment for top navbar */
+    /* for smaller screens only adjustment is needed for top navbar and not for header and footer also
+     i.e the side navbar will be displayed above, and consequently,cover the header and footer*/
+    position: relative; /* so that it can be set away from top navbar and side navbar(in case of larger screens)*/
+    top: 4.2rem; /* display everything just below the top navbar */
+}
+
+
 /**********************************************top NavBar styles begins*********************************************/
 .top-nav-container{
     position: fixed; /* it should always remain at the top */
     display: flex; /*make it a flex container for easy layout of items inside it */
     width: 100vw;  /* make the width occupy entire screen */
-    height: 60px; /* the top navigation bar is set to height of 60px for small screens */
+    height: 4rem; /* the top navigation bar is set to height of 64px for small screens */
     align-items: center; /* center the items vertically */
     z-index: 100; /* above everything else except SideNav bar */
 
@@ -33,6 +41,7 @@ body {
     margin-left: 10px; /*gap from left side of container*/
     cursor: pointer;
 }
+
 .top-nav-brand-link{
     /*margin-right: auto; enable this if you want more items on top navbar and want them to be on the right side*/
 } /*not used yet*/
@@ -44,19 +53,24 @@ body {
     width: 19rem; /* width of container ~ 290 px*/
     height: 100vh; /* occupy entire view-height*/
     z-index: 1000; /* above everything else */
-    position: relative;/* so that icon can be positioned properly w.r.t header */
+    position: fixed;/* so that it remains fixed at side and the main content is displayed below it(smaller screens) */
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
-    /*visibility: hidden;*/
+    left: -19rem; /* keep it hidden until menu icon is pressed */
+    transition: 250ms left cubic-bezier(1,0,0,1); /* for smooth display of side menu */
+    top: 4rem; /* make offset for accounting the top navbar(for both smaller & larger screens) */
+}
+.side-nav-container-open{ /* this rule is toggled, via javascript, when top navbar menu icon is clicked
+                            so that the sidenav menu is displayed/hidden(both small & large screens)*/
+    left: 0;
 }
 .side-nav-header{} /*not used yet*/
 .side-nav-header-image{ /* the size of header background image must be 300x200px */
     width: 100%;/*set the width to occupy entire width of SideNav header*/
     height: 200px;/* height of image is fixed at 200px*/
     background-size: cover; /*stretch the image to fit the width of header, if needed*/
+    background: center,no-repeat;
 }
 .side-nav-menu{ /* div wrapper for menu links */
     width: 100%; /* div must occupy entire width of SideNav bar */
@@ -74,12 +88,12 @@ body {
     text-decoration: none;
     font-size: 1.5rem; /* font size of links text */
 }
-.side-nav-close-menu-icon{
-    position: absolute; /* so that icon can be positioned properly w.r.t header */
-    font-size: 3rem; /* set the icon size */
-    top: -3px; /*place the icon on the extreme top of SideNav header */
-    right: 0px; /*place the icon on the extreme right of SideNav header */
-}
+/*.side-nav-close-menu-icon{*/
+    /*position: absolute; !* so that icon can be positioned properly w.r.t header *!*/
+    /*font-size: 3rem; !* set the icon size *!*/
+    /*top: -3px; !*place the icon on the extreme top of SideNav header *!*/
+    /*right: 0px; !*place the icon on the extreme right of SideNav header *!*/
+/*}*/
 /**********************************************side NavBar styles ends********************************************/
 
 /**********************************************general styles begins**********************************************/
