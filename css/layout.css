@@ -11,9 +11,10 @@ by applying separate css styles, if needed.
     outline: none;
     border: 0;
 }
-
+html,
 body {
     font-family: sans-serif;
+    height: 100%; /* so that 'main' container can be set to 100% height
     /*font-family: 'Montserrat', sans-serif;*/   /*font-family: 'Scope One', serif;*/
 }
 
@@ -21,7 +22,11 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
     /* for smaller screens only adjustment is needed for top navbar and not for header and footer also
      i.e the side navbar will be displayed above, and consequently,cover the header and footer*/
     position: relative; /* so that it can be set away from top navbar and side navbar(in case of larger screens)*/
-    top: 4.2rem; /* display everything just below the top navbar */
+    padding-top: 4.2rem; /*to account for the top navbar i.e display everything just below the top navbar */
+    min-height: 100%;
+    padding-bottom: 6rem; /* so that the content of main-container doesn't disappear below the footer,
+                            becoz of negative margin-top applied on footer, in case the content is large
+                            note that padding is equal to footer's height*/
 }
 
 
@@ -33,7 +38,6 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
     height: 4rem; /* the top navigation bar is set to height of 64px for small screens */
     align-items: center; /* center the items vertically */
     z-index: 100; /* above everything else except SideNav bar */
-
 }
 .top-nav-toggle-menu-icon{
     font-size: 30px;
@@ -42,9 +46,7 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
     cursor: pointer;
 }
 
-.top-nav-brand-link{
-    /*margin-right: auto; enable this if you want more items on top navbar and want them to be on the right side*/
-} /*not used yet*/
+.top-nav-brand-link{} /*not used yet*/
 /**********************************************top NavBar styles ends***********************************************/
 
 
@@ -60,13 +62,14 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
     left: -19rem; /* keep it hidden until menu icon is pressed */
     transition: 250ms left cubic-bezier(1,0,0,1); /* for smooth display of side menu */
     top: 4rem; /* make offset for accounting the top navbar(for both smaller & larger screens) */
+    overflow-x: hidden; /* Disable horizontal scroll */
 }
 .side-nav-container-open{ /* this rule is toggled, via javascript, when top navbar menu icon is clicked
                             so that the sidenav menu is displayed/hidden(both small & large screens)*/
     left: 0;
 }
-.side-nav-header{} /*not used yet*/
-.side-nav-header-image{ /* the size of header background image must be 300x200px */
+.side-nav-header{flex-basis: 200px} /*not used yet*/
+.side-nav-header__image{ /* the size of header background image must be 300x200px */
     width: 100%;/*set the width to occupy entire width of SideNav header*/
     height: 200px;/* height of image is fixed at 200px*/
     background-size: cover; /*stretch the image to fit the width of header, if needed*/
@@ -77,24 +80,55 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
     text-align: center; /* center the links text */
     overflow: auto; /* display scroll bar if menu list items are more */
 }
-.side-nav-menu-list{
+.side-nav-menu__list{
     list-style: none;
 
 }
-.side-nav-menu-list-item{
+.side-nav-menu__list__item{
     margin-bottom: 1rem; /* gap between two link items */
 }
-.side-nav-menu-list-item-link{
+.side-nav-menu__list__item__link{
     text-decoration: none;
     font-size: 1.5rem; /* font size of links text */
 }
-/*.side-nav-close-menu-icon{*/
-    /*position: absolute; !* so that icon can be positioned properly w.r.t header *!*/
-    /*font-size: 3rem; !* set the icon size *!*/
-    /*top: -3px; !*place the icon on the extreme top of SideNav header *!*/
-    /*right: 0px; !*place the icon on the extreme right of SideNav header *!*/
-/*}*/
+
 /**********************************************side NavBar styles ends********************************************/
+
+
+/**********************************************Footer styles begins********************************************/
+.footer-container{
+    display: flex;
+    width: 100vw; /* footer takes full view-width; side-menu appears over it(only on smaller screens)*/
+    height: 6rem; /*height of footer is 80px */
+    margin-top: -6rem; /* bring back the footer into the view by pulling it up by height equal to itself*/
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.footer-nav-list{
+    display: flex;
+    justify-content: space-around;
+    /*padding-top: 0.5rem;*/
+}
+.footer-nav-list__item{
+    list-style: none;
+}
+.footer-nav-list__item__link{
+    text-decoration: none;
+}
+.footer-social-links-list{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+.footer-social-links-list__item{
+    padding: 0 .2rem;
+}
+.footer-copyright-text{
+    text-align: center;
+    font-size: 0.7rem;
+}
+/**********************************************Footer styles ends********************************************/
 
 /**********************************************general styles begins**********************************************/
 
