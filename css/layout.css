@@ -67,14 +67,15 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
     top: 4rem; /* make offset for accounting the top navbar(for both smaller & larger screens) */
     overflow-x: hidden; /* Disable horizontal scroll */
 }
+
 .side-nav-container-open{ /* this rule is toggled, via javascript, when top navbar menu icon is clicked
                             so that the sidenav menu is displayed/hidden(both small & large screens)*/
     left: 0;
 }
-.side-nav-header{flex-basis: 200px} /*not used yet*/
+.side-nav-header{} /*not used yet*/
 .side-nav-header img{ /* the size of header background image must be 300x200px */
-    width: 100%;/*set the width to occupy entire width of SideNav header*/
-    height: 200px;/* height of image is fixed at 200px*/
+    width: 300px;/* width of image must be 300px*/
+    height: 200px;/* height of image must be 200px*/
     background-size: cover; /*stretch the image to fit the width of header, if needed*/
     background: center,no-repeat;
 }
@@ -108,9 +109,12 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
 
 
 /**********************************************Footer styles begins********************************************/
+.footer{
+    z-index: 10;
+}
 .footer-container{
     display: flex;
-    width: 100vw; /* footer takes full view-width; side-menu appears over it(only on smaller screens)*/
+    /*width: 100vw; !* footer takes full view-width; side-menu appears over it(only on smaller screens)*!*/
     height: 6rem; /*height of footer is 80px */
     margin-top: -6rem; /* bring back the footer into the view by pulling it up by height equal to itself*/
     flex-direction: column;
@@ -154,7 +158,27 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
 }
 /**********************************************Footer styles ends********************************************/
 
+
+/**********************************************Responsive Rules begins********************************************/
+
+/**********************************************Responsive Rules ends********************************************/
+
+
 /**********************************************general styles begins**********************************************/
+.backdrop{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* initially keep it below everything */
+    transition: background-color 300ms; /* the background color gradually becomes darker */
+
+}
+.show-backdrop{
+    z-index: 99; /* show it above everything except top and side NavBar */
+    background-color: rgba(0,0,0,.8);
+}
 
 /* gives a padding of 1rem on all sides*/
 .wrapper{
