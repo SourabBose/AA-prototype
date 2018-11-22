@@ -46,7 +46,10 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
     cursor: pointer;
 }
 
-.top-nav-brand-link{} /*not used yet*/
+.top-nav-brand-link img{ /* the brand banner img must be 250x50px */
+    width: 250px;
+    height: 50px;
+}
 /**********************************************top NavBar styles ends***********************************************/
 
 
@@ -69,7 +72,7 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
     left: 0;
 }
 .side-nav-header{flex-basis: 200px} /*not used yet*/
-.side-nav-header__image{ /* the size of header background image must be 300x200px */
+.side-nav-header img{ /* the size of header background image must be 300x200px */
     width: 100%;/*set the width to occupy entire width of SideNav header*/
     height: 200px;/* height of image is fixed at 200px*/
     background-size: cover; /*stretch the image to fit the width of header, if needed*/
@@ -82,15 +85,24 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
 }
 .side-nav-menu__list{
     list-style: none;
-
 }
-.side-nav-menu__list__item{
+.side-nav-menu__list li{
     margin-bottom: 1rem; /* gap between two link items */
+    transition: background-color 200ms;/* for displaying a background below the list item */
 }
-.side-nav-menu__list__item__link{
+.side-nav-menu__list li:hover{
+    background-color: azure;/* for displaying a background below the list item */
+}
+.side-nav-menu__list a{
     text-decoration: none;
-    font-size: 1.5rem; /* font size of links text */
+    font-size: 1.2rem; /* font size of links text */
+    text-transform: capitalize; /* capitalize the first letter of links text */
+    transition: font-size 100ms, color 100ms; /* text pops out, color changes when hovered */
 }
+.side-nav-menu__list li:hover a{
+    color: #536dfe ;/* change color of link when hovered */
+}
+
 
 /**********************************************side NavBar styles ends********************************************/
 
@@ -108,22 +120,33 @@ main{ /* this rule will apply common to all screen sizes,namely, adjustment for 
 .footer-nav-list{
     display: flex;
     justify-content: space-around;
+    z-index: 1; /* this needs to be there so that links works perfectly */
 }
-.footer-nav-list__item{
+.footer-nav-list li{
     list-style: none;
 }
-.footer-nav-list__item__link{
+.footer-nav-list a{
     text-decoration: none;
 }
+.footer-nav-list a:hover{
+    color: white;
+}
+
 .footer-social-links-list{
     display: flex;
     justify-content: center;
     list-style: none;
+    z-index: 1; /* this needs to be there so that links works perfectly */
+
 }
-.footer-social-links-list__item{
+.footer-social-links-list li{
     padding: 0 .2rem;
     font-size: 1.3rem;
 }
+.footer-social-links-list a:hover{
+    color: white;
+}
+
 .footer-copyright-text{
     text-align: center;
     font-size: 0.7rem;
