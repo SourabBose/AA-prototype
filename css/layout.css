@@ -16,8 +16,11 @@ body {
     font-family: sans-serif;
     height: 100%; /* so that 'main' container can be set to 100% height
     /*font-family: 'Montserrat', sans-serif;*/   /*font-family: 'Scope One', serif;*/
+    /*overflow: hidden;*/
 }
-
+.wrapper{
+    /*position: relative;*/
+}
 
 /**********************************************top NavBar styles begins*********************************************/
 .top-nav-container{
@@ -110,7 +113,7 @@ body {
 .main-container{ /* this rule will apply common to all screen sizes,namely, adjustment for top navbar */
     /* for smaller screens only adjustment is needed for top navbar and not for header and footer also
      i.e the side navbar will be displayed above, and consequently,cover the header and footer*/
-    /*position: relative; !* so that it can be set away from top navbar and side navbar(in case of larger screens)*!*/
+    position: relative; /* so that it can be set away from top navbar and side navbar(in case of larger screens)*/
     /*to account for the top navbar i.e display everything just below the top navbar */
     min-height: 100%;/* so keep the footer at the bottom of the page,just below the main container
                         but then, a negative margin-top is applied to footer container so that it is visible on screen*/
@@ -124,9 +127,12 @@ body {
     -ms-transition: margin-left 250ms cubic-bezier(1,0,0,1);
     -o-transition: margin-left 250ms cubic-bezier(1,0,0,1);
     transition: margin-left 250ms cubic-bezier(1,0,0,1);
+
+
 }
 .main-container-offset{
     margin-left: 19rem;
+
 }
 /**********************************************Main body styles ends********************************************/
 
@@ -144,7 +150,15 @@ body {
     margin-top: -6rem; /* bring back the footer into the view by pulling it up by height equal to itself*/
     flex-direction: column;
     justify-content: space-around;
-
+    -webkit-transition: margin-left 250ms cubic-bezier(1,0,0,1);
+    -moz-transition: margin-left 250ms cubic-bezier(1,0,0,1);
+    -ms-transition: margin-left 250ms cubic-bezier(1,0,0,1);
+    -o-transition: margin-left 250ms cubic-bezier(1,0,0,1);
+    transition: margin-left 250ms cubic-bezier(1,0,0,1);
+}
+.footer-container-offset{
+    margin-left: 19rem;
+    /*padding-left: 19rem;*/
 }
 .footer-nav-list{
     display: flex;
