@@ -25,7 +25,7 @@ body {
     -webkit-transition: margin-left 250ms cubic-bezier(1,0,0,1);
     -moz-transition: margin-left 250ms cubic-bezier(1,0,0,1);
     -o-transition: margin-left 250ms cubic-bezier(1,0,0,1);
-    transition: margin-left 250ms cubic-bezier(1,0,0,1); /* some nice effect when side menu slide in/out
+    transition: margin-left 250ms cubic-bezier(1,0,0,1); /* some nice effect when side menu slide in/out */
 }
 .non-menu-wrapper-offset{ /*makes adjustment for side menu */
     margin-left: 19rem;
