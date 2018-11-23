@@ -14,12 +14,21 @@ by applying separate css styles, if needed.
 html,
 body {
     font-family: sans-serif;
-    height: 100%; /* so that 'main' container can be set to 100% height
+    height: 100%; /* so that 'non-menu-wrapper' can be set to 100% height
     /*font-family: 'Montserrat', sans-serif;*/   /*font-family: 'Scope One', serif;*/
-    /*overflow: hidden;*/
 }
-.wrapper{
-    /*position: relative;*/
+/*************************style the div that contains all except side and top nav i.e both footer and main content*/
+.non-menu-wrapper{
+    height: 100%;
+    padding-top: 4.2rem;
+    position: relative;
+    -webkit-transition: margin-left 250ms cubic-bezier(1,0,0,1);
+    -moz-transition: margin-left 250ms cubic-bezier(1,0,0,1);
+    -o-transition: margin-left 250ms cubic-bezier(1,0,0,1);
+    transition: margin-left 250ms cubic-bezier(1,0,0,1); /* some nice effect when side menu slide in/out
+}
+.non-menu-wrapper-offset{ /*makes adjustment for side menu */
+    margin-left: 19rem;
 }
 
 /**********************************************top NavBar styles begins*********************************************/
@@ -105,60 +114,33 @@ body {
 .side-nav-menu__list li:hover a{
     color: #536dfe ;/* change color of link when hovered */
 }
+/**********************************************side NavBar styles ends********************************************/
 
 /**********************************************Main body styles begins********************************************/
-.main-container{ /* this rule will apply common to all screen sizes,namely, adjustment for top navbar */
-    /* for smaller screens only adjustment is needed for top navbar and not for header and footer also
-     i.e the side navbar will be displayed above, and consequently,cover the header and footer*/
-    position: relative; /* so that it can be set away from top navbar and side navbar(in case of larger screens)*/
-    /*to account for the top navbar i.e display everything just below the top navbar */
-    min-height: 100%;/* so keep the footer at the bottom of the page,just below the main container
-                        but then, a negative margin-top is applied to footer container so that it is visible on screen*/
-
-    padding: 4.2rem 0.6rem 6rem; /* avoid colliding with the navs and some side padding to look nice
-                                bottom padding of 6rem so that the content of main-container doesn't disappear
-                                 below the footer, becoz of negative margin-top applied on footer if the content is
-                                  large. Note that padding is equal to footer's height*/
-    -webkit-transition: margin-left 250ms cubic-bezier(1,0,0,1);
-    -moz-transition: margin-left 250ms cubic-bezier(1,0,0,1);
-    -o-transition: margin-left 250ms cubic-bezier(1,0,0,1);
-    transition: margin-left 250ms cubic-bezier(1,0,0,1);
-
-
-}
-.main-container-offset{
-    margin-left: 19rem;
-
+.main-container{
+    min-height: 100%; /*keep the footer at the bottom */
+    padding-bottom: 6rem; /*so that the container doesn't go below the footer(in case of more content) */
 }
 /**********************************************Main body styles ends********************************************/
 
-/**********************************************side NavBar styles ends********************************************/
 
 
 /**********************************************Footer styles begins********************************************/
-.footer{
-    z-index: 10;
-}
+
 .footer-container{
     display: flex;
-    /*width: 100vw; !* footer takes full view-width; side-menu appears over it(only on smaller screens)*!*/
     height: 6rem; /*height of footer is 80px */
     margin-top: -6rem; /* bring back the footer into the view by pulling it up by height equal to itself*/
     flex-direction: column;
     justify-content: space-around;
-    -webkit-transition: margin-left 250ms cubic-bezier(1,0,0,1);
-    -moz-transition: margin-left 250ms cubic-bezier(1,0,0,1);
-    -o-transition: margin-left 250ms cubic-bezier(1,0,0,1);
-    transition: margin-left 250ms cubic-bezier(1,0,0,1);
 }
 .footer-container-offset{
     margin-left: 19rem;
-    /*padding-left: 19rem;*/
 }
 .footer-nav-list{
     display: flex;
     justify-content: space-around;
-    z-index: 1; /* this needs to be there so that links works perfectly */
+    /*z-index: 1; !* this needs to be there so that links works perfectly *!*/
 }
 .footer-nav-list li{
     list-style: none;
@@ -194,13 +176,8 @@ body {
 
 
 /**********************************************Responsive Rules begins********************************************/
-@media screen and (min-width: 776px){
-    .main-container{
-        /*larger side padding on larger screens */
-        padding-right: 1rem;
-        padding-left: 1rem;
-    }
-}
+
+
 /**********************************************Responsive Rules ends********************************************/
 
 
@@ -223,10 +200,7 @@ body {
     background-color: rgba(0,0,0,.8);
 }
 
-/* gives a padding of 1rem on all sides*/
-.wrapper{
-    padding: 1rem 1rem;
-}
+
 
 /*text color of indigo shades */
 .indigo-text-lighten-5{
