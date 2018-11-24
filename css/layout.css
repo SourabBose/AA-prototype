@@ -28,7 +28,7 @@ body {
     transition: margin-left 250ms cubic-bezier(1,0,0,1); /* some nice effect when side menu slide in/out */
 }
 .non-menu-wrapper-offset{ /*makes adjustment for side menu */
-    margin-left: 19rem;
+    margin-left: 15rem;
 }
 
 /**********************************************top NavBar styles begins*********************************************/
@@ -56,14 +56,14 @@ body {
 
 /**********************************************side NavBar styles begins********************************************/
 .side-nav-container{
-    width: 19rem; /* width of container ~ 290 px*/
+    width: 15rem; /* width of container ~ 290 px*/
     height: 100vh; /* occupy entire view-height*/
     z-index: 100; /* above everything else, same level as top nav-bar */
     position: fixed;/* so that it remains fixed at side and the main content is displayed below it(smaller screens) */
     display: flex;
     flex-direction: column;
     align-items: center;
-    left: -19rem; /* keep it hidden until menu icon is pressed */
+    left: -15rem; /* keep it hidden until menu icon is pressed */
     -webkit-transition: left 250ms cubic-bezier(1,0,0,1);
     -moz-transition: left 250ms cubic-bezier(1,0,0,1);
     -o-transition: left 250ms cubic-bezier(1,0,0,1);
@@ -73,15 +73,16 @@ body {
 }
 
 .side-nav-container-open{ /* this rule is toggled, via javascript, when top navbar menu icon is clicked
-                            so that the sidenav menu is displayed/hidden(both small & large screens)*/
+                            so that the sidenav menu is displayed/hidden(for small screens)*/
     left: 0;
 }
-.side-nav-header{} /*not used yet*/
-.side-nav-header img{ /* the size of header background image must be 300x200px */
-    width: 300px;/* width of image must be 300px*/
-    height: 200px;/* height of image must be 200px*/
-    background-size: cover; /*stretch the image to fit the width of header, if needed*/
-    background: center,no-repeat;
+.side-nav-header{
+    width: 100%; /* the header takes entire width of the side nav container */
+    height: 150px;
+
+/* the size of header background image must be in the ratio 8:3 but at least 240x150px*/
+    background: url("../img/sidenav-header-bg.png") no-repeat;
+    background-size: cover;
 }
 .side-nav-menu{ /* div wrapper for menu links */
     width: 100%; /* div must occupy entire width of SideNav bar */
@@ -96,23 +97,21 @@ body {
     -webkit-transition: background-color 200ms;
     -moz-transition: background-color 200ms;
     -o-transition: background-color 200ms;
-    transition: background-color 200ms;/* for displaying a background below the list item */
 }
-.side-nav-menu__list li:hover{
-    background-color: azure;/* for displaying a background below the list item */
-}
+
 .side-nav-menu__list a{
     text-decoration: none;
     font-size: 1.2rem; /* font size of links text */
+    letter-spacing: 0.1rem; /* add some spacing between characters */
     text-transform: capitalize; /* capitalize the first letter of links text */
-    -webkit-transition: font-size 100ms, color 100ms;
-    -moz-transition: font-size 100ms, color 100ms;
-    -o-transition: font-size 100ms, color 100ms;
-    transition: font-size 100ms, color 100ms;/* text pops out, color changes when hovered */
+    -webkit-transition: letter-spacing 100ms;
+    -moz-transition: letter-spacing 100ms;
+    -o-transition: letter-spacing 100ms;
+    transition: letter-spacing 100ms;
 
 }
-.side-nav-menu__list li:hover a{
-    color: #536dfe ;/* change color of link when hovered */
+.side-nav-menu__list a:hover{
+    letter-spacing: 0.2rem; /* some animation */
 }
 /**********************************************side NavBar styles ends********************************************/
 
@@ -134,9 +133,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
 }
-.footer-container-offset{
-    margin-left: 19rem;
-}
+
 .footer-nav-list{
     display: flex;
     justify-content: space-around;
@@ -176,7 +173,17 @@ body {
 
 
 /**********************************************Responsive Rules begins********************************************/
-
+@media screen and (min-width: 776px) {
+    .non-menu-wrapper{
+        margin-left: 15rem;
+    }
+    .side-nav-container{
+        left:0;
+    }
+    .top-nav-toggle-menu-icon{
+        display: none;
+    }
+}
 
 /**********************************************Responsive Rules ends********************************************/
 
